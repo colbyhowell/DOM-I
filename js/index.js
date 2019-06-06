@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "DOM<br>Is<br>Awesome",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street<br> Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -43,12 +43,12 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 let navList = document.querySelectorAll("nav a")
 navList.forEach((item, i) => {
-  item.navList = siteContent['nav'][`nav-item-(${i + 1})`];
+  item.textContent = siteContent['nav'][`nav-item-${i + 1}`];
 })
 
 let awesomeDom = document.querySelector("h1")
-awesomeDom.textContent = siteContent['cta']['h1']
-awesomeDom.style.fontSize = "60px"
+awesomeDom.innerHTML = siteContent['cta']['h1']
+awesomeDom.style.fontSize = "80px"
 awesomeDom.style.fontStyle = "italic"
 console.log(awesomeDom)
 
@@ -65,12 +65,33 @@ buttonText.textContent = siteContent['cta']['button']
 let innerImage = document.querySelector('.middle-img')
 innerImage.src = siteContent['main-content']['middle-img-src']
 
-let topContent = document.querySelector('.top-content h4')
-topContent.textContent = siteContent['main-content']['features-h4']
-topContent.style.display = "flex"
-topContent.style.justifyContent= "space-between"
+let topContent = document.querySelectorAll('.top-content h4')
+console.log(topContent)
+topContent[0].textContent = siteContent['main-content']['features-h4']
+topContent[1].textContent = siteContent['main-content']['about-h4']
 
-let pTopContent = document.querySelector('.top-content p')
-pTopContent.textContent = siteContent['main-content']['features-content']
-pTopContent.style.justifyContent = "space-between"
+let pTopContent = document.querySelectorAll('.top-content p')
+pTopContent[0].textContent = siteContent['main-content']['features-content']
+pTopContent[1].textContent = siteContent['main-content']['about-content']
 
+let pBotHeaders = document.querySelectorAll('.bottom-content h4')
+pBotHeaders[0].textContent = siteContent['main-content']['services-h4']
+pBotHeaders[1].textContent = siteContent['main-content']['product-h4']
+pBotHeaders[2].textContent = siteContent['main-content']['vision-h4']
+
+let pBotContent = document.querySelectorAll('.bottom-content p')
+pBotContent[0].textContent = siteContent['main-content']['services-content']
+pBotContent[1].textContent = siteContent['main-content']['product-content']
+pBotContent[2].textContent = siteContent['main-content']['vision-content']
+
+
+let contactHeader = document.querySelector(".contact h4")
+contactHeader.innerHTML = siteContent['contact']['contact-h4']
+
+let contactP = document.querySelectorAll(".contact p")
+contactP[0].innerHTML = siteContent['contact']['address']
+contactP[1].innerHTML = siteContent['contact']['phone']
+contactP[2].innerHTML = siteContent['contact']['email']
+
+let footerP = document.querySelector('footer p')
+footerP.innerHTML = siteContent['footer']['copyright']
