@@ -44,7 +44,24 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 let navList = document.querySelectorAll("nav a")
 navList.forEach((item, i) => {
   item.textContent = siteContent['nav'][`nav-item-${i + 1}`];
+  item.style.color = "green"
+  item.style.fontWeight = "700"
 })
+
+let onlyNav = document.querySelector("nav")
+
+const appendNav = document.createElement("a")
+const prependNav = document.createElement("a")
+
+appendNav.textContent = "Back"
+appendNav.style.color = "green"
+appendNav.style.fontWeight = "700"
+prependNav.textContent = "Front"
+prependNav.style.color = "green"
+prependNav.style.fontWeight = "700"
+
+onlyNav.prepend(prependNav)
+onlyNav.append(appendNav)
 
 let awesomeDom = document.querySelector("h1")
 awesomeDom.innerHTML = siteContent['cta']['h1']
