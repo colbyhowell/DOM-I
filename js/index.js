@@ -40,3 +40,37 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let navList = document.querySelectorAll("nav a")
+navList.forEach((item, i) => {
+  item.navList = siteContent['nav'][`nav-item-(${i + 1})`];
+})
+
+let awesomeDom = document.querySelector("h1")
+awesomeDom.textContent = siteContent['cta']['h1']
+awesomeDom.style.fontSize = "60px"
+awesomeDom.style.fontStyle = "italic"
+console.log(awesomeDom)
+
+let ctaFlex = document.querySelector(".cta")
+ctaFlex.style.display = "flex"
+ctaFlex.style.justifyContent= "space-between"
+
+let codeImage = document.querySelector('#cta-img')
+codeImage.src = siteContent["cta"]["img-src"]
+
+let buttonText = document.querySelector("button")
+buttonText.textContent = siteContent['cta']['button']
+
+let innerImage = document.querySelector('.middle-img')
+innerImage.src = siteContent['main-content']['middle-img-src']
+
+let topContent = document.querySelector('.top-content h4')
+topContent.textContent = siteContent['main-content']['features-h4']
+topContent.style.display = "flex"
+topContent.style.justifyContent= "space-between"
+
+let pTopContent = document.querySelector('.top-content p')
+pTopContent.textContent = siteContent['main-content']['features-content']
+pTopContent.style.justifyContent = "space-between"
+
